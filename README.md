@@ -13,7 +13,7 @@ To use any of the scripts in the PyCrypt collection, clone the repository and na
 
 ```bash
 git clone https://github.com/gandli/PyCrypt.git
-cd PyCrypt
+cd PyCrypt/scripts
 ```
 
 For example, to run the `caesar_cipher.py` script:
