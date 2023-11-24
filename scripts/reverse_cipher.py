@@ -18,13 +18,7 @@ def reverse_cipher(message):
     返回:
     str: 反向后的消息字符串。
     """
-    reversed_message = ""  # 初始化反向消息为空字符串
-
-    # 使用 for 循环反向遍历消息中的每一个字符
-    for char in reversed(message):
-        reversed_message += char  # 将当前字符添加到反向消息中
-
-    return reversed_message
+    return "".join(reversed(message))
 
 
 # 检查是否有命令行参数传入
