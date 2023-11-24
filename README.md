@@ -32,6 +32,7 @@ Replace `[message]`, `[key]`, and `[mode]` with your desired input. The `mode` c
 To install required packages:
 
 ```bash
+# pipreqs scripts --encoding=utf8
 pip install -r requirements.txt
 ```
 
