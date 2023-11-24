@@ -32,29 +32,28 @@ def caesard(ciphertext, shift=3):
     return caesar(ciphertext, -shift)  
 
 def encode(pt, cnt=50):
-	tmp = '2{}'.format(b64encode(pt))
-	for cnt in xrange(cnt):
+	tmp = f'2{b64encode(pt)}'
+	for _ in xrange(cnt):
 		c = random.choice(enc_ciphers)
 		i = enc_ciphers.index(c) + 1
 		_tmp = globals()[c](tmp)
-		tmp = '{}{}'.format(i, _tmp)
+		tmp = f'{i}{_tmp}'
 
 	return tmp
 
 def decode(encoded_str):
-    decode_count = 0  
-    while True:
-        if encoded_str[0] in '123':
-            decode_count += 1
-            method_index = int(encoded_str[0]) - 1
-            decode_method = globals()[dec_ciphers[method_index]]
-            encoded_str = decode_method(encoded_str[1:])
+	decode_count = 0
+	while True:
+		if encoded_str[0] not in '123':
+			break
+		decode_count += 1
+		method_index = int(encoded_str[0]) - 1
+		decode_method = globals()[dec_ciphers[method_index]]
+		encoded_str = decode_method(encoded_str[1:])
 
-            if re.match(r'flag\{[a-z0-9_@]+\}', encoded_str):
-                break
-        else:
-            break
-    return encoded_str#,decode_count
+		if re.match(r'flag\{[a-z0-9_@]+\}', encoded_str):
+		    break
+	return encoded_str#,decode_count
 
 if __name__ == '__main__':
 	# encoded_flag = encode(FLAG,60)
