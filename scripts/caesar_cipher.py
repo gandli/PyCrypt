@@ -40,7 +40,8 @@ def caesar_cipher(message, key, mode, symbols):
 
 
 # 定义可能被加密的符号
-SYMBOLS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890 !?."
+SYMBOLS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890 !?.`~@#$%^&*()_+-=[]{}|;:<>,/"
+# SYMBOLS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890 !?."
 
 # 检查是否有命令行参数传入
 if len(sys.argv) > 3:

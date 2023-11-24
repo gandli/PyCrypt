@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 # test_caesar_cipher.py
 import pytest
-
 from caesar_cipher import SYMBOLS, caesar_cipher
 
 
@@ -23,10 +22,12 @@ def test_boundary_key(key):
 
 
 # 特殊字符测试
-def test_special_characters():
-    message = "@#$%^&*()"
-    result = caesar_cipher(message, 3, "encrypt", SYMBOLS)
-    assert result == message
+def test_special_characters_encryption():
+    message = "`~@#$%^&*()_+-=[]{}|;:&lt;>,/"
+    key = 5
+    encrypted = caesar_cipher(message, key, "encrypt", SYMBOLS)
+    decrypted = caesar_cipher(encrypted, key, "decrypt", SYMBOLS)
+    assert decrypted == message
 
 
 # 大密钥值测试
